@@ -1,21 +1,16 @@
-### DISCLAIMER: This is my first script, I dont know anything about scripting**  
-### This might not work on your system or have horrendous programming flaws**  
+#!/usr/bin/env bash
 
-## x11-vibrant-cli-setAll 
-### Description:
-This script allows you to change the color vibrancy of all of your screens simultaneously.  
-**Use case example**: 
-I launch the script with desired values via keybinding.  
+#get connected displays
+DISPLAYS=$(xrandr | grep ' connected' | awk '{print $1}')
 
-### Required packages:
-[libvibrant](https://gitlab.com/libvibrant/libvibrant)
+#get number of connected Displays
+displayAmount=$(echo $DISPLAYS | wc -w)
 
-### Usage
+#populate array with Displays
+displayArray=($DISPLAYS)
 
-*Syntax*:  
-  `setVibrancyAllMonitors.sh yourDesiredValueHere`
-
-*Example*:  
-  `setVibrancyAllMonitors.sh 1.5`
-
-
+#set vibrancy value to script argument value
+for (( n=0; n<$displayAmount; n++ ))
+do
+    vibrant-cli ${displayArray[$n]} $1
+done
