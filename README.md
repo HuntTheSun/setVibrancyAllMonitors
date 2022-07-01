@@ -1,5 +1,5 @@
-### DISCLAIMER: This is my first script, I dont know anything about scripting**  
-### This might not work on your system or have horrendous programming flaws**  
+### DISCLAIMER: This is my first script, I dont know anything about scripting
+### This might not work on your system or have horrendous programming flaws  
 
 ## x11-vibrant-cli-setAll 
 ### Description:
